@@ -59,7 +59,7 @@ class Settings extends React.Component{
         this.props.setLanguage(language);
         this.setState({checkingLogout:true});
         await AsyncStorage.setItem("language",language);
-        
+        I18nManager.forceRTL(i18n.language === 'ar');
         RNPRestart.Restart();
         //console.log(this.props.language);
         //i18next.changeLanguage(language);
@@ -92,6 +92,7 @@ class Settings extends React.Component{
                         <Picker style={{color:this.props.theme.PRIMARY_TEXT_COLOR,flex:1}}  selectedValue={this.props.theme.mode} onValueChange={(itemValue , itemIndex) => this.alterTheme(itemValue)}>
                             <Picker.Item label="Light" value="light" />
                             <Picker.Item label="Dark" value="dark" />
+                            <Picker.Item label="Orange" value="orange" />
                         </Picker>
                     </RowContainer>
                     <RowContainer>
@@ -176,7 +177,6 @@ class Settings extends React.Component{
                     <Picker style={{color:this.props.theme.PRIMARY_TEXT_COLOR,flex:1}}  selectedValue={this.props.language} onValueChange={(itemValue , itemIndex) => this.changeLanguageGlobally(itemValue)}>
                         <Picker.Item label="en" value="en" />
                         <Picker.Item label="ar" value="ar" />
-                        <Picker.Item label="or" value="or" />
                     </Picker>
                     
                     </RowContainer>                    
