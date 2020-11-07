@@ -2,7 +2,7 @@ import React from 'react';
 import { View  , TouchableOpacity, StyleSheet, ActivityIndicator  , I18nManager, Picker} from 'react-native';
 import { connect } from 'react-redux'
 import { removeUser , setTheme , setLanguage } from '../app_redux';
-import { LightTheme , DarkTheme } from './themes';
+import { LightTheme , DarkTheme, OrangeTheme } from './themes';
 import { Translation } from 'react-i18next';
 import i18n from './il8n';
 import i18next from 'i18next';
@@ -38,6 +38,7 @@ class Settings extends React.Component{
     alterTheme = (themeName) =>{
         if(themeName === 'light') this.props.setTheme(LightTheme);
         else if(themeName === 'dark') this.props.setTheme(DarkTheme);
+        else this.props.setTheme(OrangeTheme)
     }
 
     LogOut = async() =>{
@@ -152,6 +153,7 @@ class Settings extends React.Component{
                         <Picker style={{color:this.props.theme.PRIMARY_TEXT_COLOR,flex:1}}  selectedValue={this.props.theme.mode} onValueChange={(itemValue , itemIndex) => this.alterTheme(itemValue)}>
                             <Picker.Item label="Light" value="light" />
                             <Picker.Item label="Dark" value="dark" />
+                            <Picker.Item label="Orange" value="orange" />
                         </Picker>
                     </RowContainer>
                     <RowContainer>
@@ -174,6 +176,7 @@ class Settings extends React.Component{
                     <Picker style={{color:this.props.theme.PRIMARY_TEXT_COLOR,flex:1}}  selectedValue={this.props.language} onValueChange={(itemValue , itemIndex) => this.changeLanguageGlobally(itemValue)}>
                         <Picker.Item label="en" value="en" />
                         <Picker.Item label="ar" value="ar" />
+                        <Picker.Item label="or" value="or" />
                     </Picker>
                     
                     </RowContainer>                    

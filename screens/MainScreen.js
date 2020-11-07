@@ -197,7 +197,7 @@ class MainScreen extends React.Component{
                                     <TextInp onChangeText={(val) => this.setState({username:val})} placeholder={"اسم الدخول.."} placeholderTextColor="black"/>
                                 }
 
-                                {this.props.language === 'ar' && this.props.theme.mode === 'dark' && 
+                                {this.props.language === 'ar' && (this.props.theme.mode === 'dark' || this.props.theme.mode === 'orange') && 
                                     <TextInp onChangeText={(val) => this.setState({username:val})} placeholder="اسم الدخول.." placeholderTextColor="rgba(255,255,255,0.4)"/>
                                 }
 
@@ -205,14 +205,15 @@ class MainScreen extends React.Component{
                                     <TextInp onChangeText={(val) => this.setState({username:val})} placeholder={"Username"} placeholderTextColor="black"/>
                                 }
 
-                                {this.props.language === 'en' && this.props.theme.mode === 'dark' && 
+                                {this.props.language === 'en' && (this.props.theme.mode === 'dark' || this.props.theme.mode === 'orange') && 
                                     <TextInp onChangeText={(val) => this.setState({username:val})} placeholder={"Username"} placeholderTextColor="rgba(255,255,255,0.4)"/>
                                 }
 
-                                {this.props.language === 'ar' && this.props.theme.mode === 'dark' && 
+                                {this.props.language === 'ar' && (this.props.theme.mode === 'dark' || this.props.theme.mode === 'orange') && 
+
                                 <TextInp secureTextEntry={true} onChangeText={(val) => this.setState({password:val})} placeholder="كلمه السر.."  placeholderTextColor="rgba(255,255,255,0.4)"/>
                                 }
-                                {this.props.language === 'en' && this.props.theme.mode === 'dark' && 
+                                {this.props.language === 'en' && (this.props.theme.mode === 'dark' || this.props.theme.mode === 'orange') && 
                                 <TextInp secureTextEntry={true} onChangeText={(val) => this.setState({password:val})} placeholder="Password.."  placeholderTextColor="rgba(255,255,255,0.4)"/>
                                 }
                                 {this.props.language === 'ar' && this.props.theme.mode === 'light' && 
